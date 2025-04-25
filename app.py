@@ -4,7 +4,7 @@ import numpy as np
 import plotly.graph_objects as go
 
 # Load model
-model = joblib.load(r"C:\Users\imash\exercises\project 1\aqi_model.pkl")
+model = joblib.load("aqi_model.pkl")
 
 st.set_page_config(page_title="AQI Prediction App", layout="centered")
 
