@@ -23,12 +23,23 @@ feature_ranges = {
     'Humidity': (0, 100)
 }
 
+preset_values = {
+    'NO2': 40.0,
+    'CO': 1.2,
+    'SO2': 12.0,
+    'O3': 60.0,
+    'PM2.5': 80.0,
+    'PM10': 120.0,
+    'Temperature': 25.0,
+    'Humidity': 55.0
+}
+
 inputs = {}
 cols = st.columns(2)
 for i, feature in enumerate(features):
     with cols[i % 2]:
         fmin, fmax = feature_ranges[feature]
-        inputs[feature] = st.slider(f"{feature}", min_value=float(fmin), max_value=float(fmax), value=float((fmin+fmax)/2), step=0.5)
+        inputs[feature] = st.slider(f"{feature}", min_value=float(fmin), max_value=float(fmax), value=preset_values[feature], step=0.5)
 
 # Predict button
 if st.button("🔍 Predict AQI"):
